@@ -2,773 +2,490 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>For Rafia 🎂</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html,body{
-  width:100%;
-  min-height:100%;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080014;
-  color:white;
-  overflow-x:hidden;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   min-height:100vh;
+  font-family:Arial,sans-serif;
+  color:#fff;
   background:
-    radial-gradient(circle at 20% 20%,rgba(255,0,128,.18),transparent 30%),
-    radial-gradient(circle at 80% 80%,rgba(120,0,255,.22),transparent 30%),
-    linear-gradient(135deg,#080014,#17002b,#080014);
+  radial-gradient(circle at 20% 20%,#ff168044,transparent 30%),
+  radial-gradient(circle at 80% 80%,#792cff44,transparent 30%),
+  linear-gradient(135deg,#090014,#21002f,#090014);
+  overflow-x:hidden;
 }
-
-body::before{
+body:before{
   content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px),
-    radial-gradient(circle,rgba(255,180,240,.5) 1px,transparent 1px);
-  background-size:70px 70px,110px 110px;
-  background-position:0 0,35px 50px;
-  opacity:.35;
+  position:fixed;inset:0;pointer-events:none;opacity:.3;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:70px 70px;
 }
-
 .scene{
-  display:none;
-  min-height:100vh;
-  width:100%;
-  padding:30px 18px;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  z-index:2;
+  display:none;min-height:100vh;width:100%;
+  padding:30px 18px;align-items:center;justify-content:center;
+  text-align:center;position:relative;z-index:2;
 }
-
-.scene.active{
-  display:flex;
-  animation:sceneIn .7s ease;
-}
-
-@keyframes sceneIn{
-  from{
-    opacity:0;
-    transform:translateY(25px) scale(.98);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
+.scene.active{display:flex;animation:in .7s ease}
+@keyframes in{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:none}}
 .card{
-  width:min(650px,100%);
-  padding:35px 25px;
-  border-radius:28px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.15);
-  box-shadow:0 20px 70px rgba(0,0,0,.45);
-  backdrop-filter:blur(14px);
+  width:min(650px,100%);padding:35px 24px;border-radius:28px;
+  background:#ffffff12;border:1px solid #ffffff22;
+  box-shadow:0 20px 70px #0008;backdrop-filter:blur(15px);
 }
-
-.small{
-  font-size:14px;
-  opacity:.7;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:15px;
-}
-
-h1{
-  font-size:clamp(32px,8vw,62px);
-  line-height:1.05;
-  margin-bottom:18px;
-}
-
-h2{
-  font-size:clamp(25px,6vw,42px);
-  margin-bottom:20px;
-}
-
-p{
-  font-size:17px;
-  line-height:1.7;
-  color:rgba(255,255,255,.88);
-}
-
-.highlight{
-  color:#ff72c8;
-}
-
+h1{font-size:clamp(38px,10vw,70px);margin-bottom:20px}
+h2{font-size:clamp(25px,7vw,42px);margin-bottom:20px}
+p{font-size:17px;line-height:1.7;color:#ffffffdd}
+.small{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.65;margin-bottom:15px}
+.pink{color:#ff70c5}
 button{
-  border:0;
-  outline:0;
-  cursor:pointer;
-  color:white;
+  border:0;color:#fff;cursor:pointer;font-weight:bold;font-size:16px;
+  padding:14px 23px;margin:8px;border-radius:999px;
+  background:linear-gradient(135deg,#ff3d9d,#8248ff);
+  transition:.25s;box-shadow:0 8px 30px #ff329944;
+}
+button:hover{transform:translateY(-3px) scale(1.02)}
+button:active{transform:scale(.96)}
+.options{display:flex;flex-wrap:wrap;justify-content:center}
+.reaction{min-height:28px;color:#ff9bd6;font-weight:bold;margin-top:12px}
+.hidden{display:none!important}
+input,textarea{
+  width:100%;margin-top:20px;padding:16px;border-radius:18px;
+  border:1px solid #ffffff33;outline:none;background:#0004;color:#fff;
   font-size:16px;
-  font-weight:700;
-  padding:14px 24px;
-  border-radius:999px;
-  margin:8px;
-  background:linear-gradient(135deg,#ff3f9f,#8d45ff);
-  box-shadow:0 8px 30px rgba(255,50,160,.25);
-  transition:.25s ease;
 }
+input::placeholder,textarea::placeholder{color:#ffffff66}
+.progress{position:fixed;top:10px;left:50%;transform:translateX(-50%);
+width:85%;max-width:500px;height:5px;background:#ffffff18;border-radius:10px;z-index:20}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#ff4da6,#a45cff);transition:.5s}
+.mystery{font-size:90px;animation:float 2s infinite alternate}
+@keyframes float{to{transform:translateY(-12px) rotate(4deg)}}
 
-button:hover{
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 12px 35px rgba(255,50,160,.4);
+.route{position:relative;max-width:560px;margin:35px auto;height:60px}
+.line{position:absolute;top:28px;width:100%;height:4px;background:#ff65b8}
+.city{position:absolute;top:5px;padding:10px;background:#180021;
+border:1px solid #ff65b8;border-radius:12px;font-weight:bold}
+.left{left:0}.right{right:0}
+.car{position:absolute;top:5px;font-size:32px;animation:drive 4s infinite alternate ease-in-out}
+@keyframes drive{from{left:8%}to{left:87%}}
+
+.memories{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}
+.memory{min-height:145px;padding:20px;border-radius:20px;
+background:#ffffff0d;border:1px solid #ffffff18;
+display:flex;align-items:center;justify-content:center;font-size:16px}
+
+.envelope{width:190px;height:125px;background:#f3cce6;margin:25px auto;
+border-radius:10px;position:relative;cursor:pointer;box-shadow:0 15px 40px #0007}
+.envelope:before{content:"";position:absolute;inset:0;
+background:#ddaaca;clip-path:polygon(0 0,50% 55%,100% 0)}
+.envelope span{position:absolute;bottom:18px;left:0;right:0;color:#702050;font-weight:bold}
+.letter{display:none;background:#fff5fb;color:#54213f;text-align:left;
+padding:25px;border-radius:12px;font-family:"Comic Sans MS",cursive;line-height:1.8}
+.letter.show{display:block;animation:in .7s}
+.letter p{color:#54213f}
+
+#game{height:320px;max-width:500px;margin:20px auto;border-radius:22px;
+background:#0003;border:1px solid #ffffff18;position:relative;overflow:hidden}
+#heart{position:absolute;font-size:45px;cursor:pointer;display:none}
+.score{margin:12px}
+
+.cake{font-size:90px;animation:bounce 1s infinite alternate}
+@keyframes bounce{to{transform:translateY(-10px)}}
+.finalTitle{
+  font-size:clamp(42px,12vw,85px);
+  background:linear-gradient(90deg,#ff72c8,#fff,#ae70ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-
-button:active{
-  transform:scale(.96);
-}
-
-.ghost{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.18);
-}
-
-.options{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  margin-top:25px;
-}
-
-.reaction{
-  min-height:35px;
-  margin-top:15px;
-  font-size:16px;
-  color:#ffb5df;
-  font-weight:600;
-}
-
-input,
-textarea{
-  width:100%;
-  border:1px solid rgba(255,255,255,.2);
-  outline:none;
-  color:white;
-  background:rgba(0,0,0,.25);
-  border-radius:18px;
-  padding:16px;
-  font-size:16px;
-  margin-top:20px;
-  resize:none;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:rgba(255,255,255,.45);
-}
-
-.next{
-  margin-top:20px;
-}
-
-.heart{
-  position:fixed;
-  font-size:22px;
-  pointer-events:none;
-  animation:floatHeart 4s linear forwards;
-  z-index:1;
-}
-
-@keyframes floatHeart{
-  0%{
-    transform:translateY(20px) scale(.6);
-    opacity:0;
-  }
-  15%{opacity:1;}
-  100%{
-    transform:translateY(-110vh) rotate(25deg) scale(1.3);
-    opacity:0;
-  }
-}
-
-.pulse{
-  animation:pulse 1.8s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-}
-
-.mystery{
-  font-size:clamp(55px,15vw,110px);
-  margin-bottom:10px;
-  animation:mysteryFloat 2s ease-in-out infinite;
-}
-
-@keyframes mysteryFloat{
-  0%,100%{transform:translateY(0) rotate(-3deg);}
-  50%{transform:translateY(-12px) rotate(3deg);}
-}
-
-.progress{
-  position:fixed;
-  top:12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(500px,85%);
-  height:5px;
-  border-radius:10px;
-  background:rgba(255,255,255,.1);
-  z-index:20;
-  overflow:hidden;
-}
-
-.progress-bar{
-  width:0%;
-  height:100%;
-  background:linear-gradient(90deg,#ff4da6,#a65cff);
-  transition:.6s ease;
-}
-
-.quiz-number{
-  font-size:13px;
-  opacity:.55;
-  margin-bottom:10px;
-}
-
-.route{
-  margin:30px auto;
-  max-width:560px;
-  position:relative;
-}
-
-.route-line{
-  height:4px;
-  width:100%;
-  border-radius:10px;
-  background:linear-gradient(90deg,#ff4fa8,#9a55ff);
-  position:relative;
-}
-
-.city{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#160022;
-  border:2px solid #ff6bbd;
-  padding:10px 14px;
-  border-radius:14px;
-  font-weight:700;
-}
-
-.city.left{left:0;}
-.city.right{right:0;}
-
-.car{
-  position:absolute;
-  top:50%;
-  transform:translate(-50%,-50%);
-  font-size:34px;
-  animation:drive 4s ease-in-out infinite alternate;
-}
-
-@keyframes drive{
-  from{left:8%;}
-  to{left:92%;}
-}
-
-.memory-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:25px;
-}
-
-.memory{
-  min-height:150px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-  background:linear-gradient(145deg,rgba(255,100,190,.16),rgba(120,80,255,.16));
-  border:1px solid rgba(255,255,255,.12);
-  font-size:15px;
-}
-
-.envelope{
-  width:190px;
-  height:130px;
-  margin:20px auto;
-  border-radius:10px;
-  background:#f4d8ec;
-  position:relative;
-  cursor:pointer;
-  box-shadow:0 15px 40px rgba(0,0,0,.35);
-}
-
-.envelope::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:#e8bcd9;
-  clip-path:polygon(0 0,50% 55%,100% 0);
-}
-
-.envelope span{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:20px;
-  color:#7b245e;
-  font-weight:800;
-  z-index:2;
-}
-
-.letter{
-  display:none;
-  margin-top:25px;
-  text-align:left;
-  background:#fff4fb;
-  color:#552044;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 15px 45px rgba(0,0,0,.35);
-  font-family:"Comic Sans MS",cursive;
-  line-height:1.8;
-}
-
-.letter.show{
-  display:block;
-  animation:letterOpen .7s ease;
-}
-
-@keyframes letterOpen{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-#gameArea{
-  position:relative;
-  width:100%;
-  max-width:500px;
-  height:330px;
-  margin:20px auto;
-  overflow:hidden;
-  border-radius:25px;
-  background:rgba(0,0,0,.25);
-  border:1px solid rgba(255,255,255,.12);
-}
-
-#gameHeart{
-  position:absolute;
-  font-size:45px;
-  cursor:pointer;
-  display:none;
-  user-select:none;
-}
-
-.score{
-  font-size:18px;
-  margin:10px 0;
-}
-
-#final{
-  background:
-    radial-gradient(circle at 50% 30%,rgba(255,40,150,.28),transparent 35%),
-    linear-gradient(135deg,#180025,#30003e,#120018);
-}
-
-.final-title{
-  font-size:clamp(40px,11vw,85px);
-  background:linear-gradient(90deg,#ff75c8,#ffffff,#b779ff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  animation:titleGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow{
-  from{filter:drop-shadow(0 0 5px rgba(255,100,200,.2));}
-  to{filter:drop-shadow(0 0 22px rgba(255,100,200,.7));}
-}
-
-.cake{
-  font-size:90px;
-  margin:20px;
-  animation:cakeBounce 1s infinite alternate;
-}
-
-@keyframes cakeBounce{
-  from{transform:translateY(0);}
-  to{transform:translateY(-10px);}
-}
-
-.confetti{
-  position:fixed;
-  width:8px;
-  height:14px;
-  top:-20px;
-  z-index:50;
-  animation:confettiFall 3.5s linear forwards;
-}
-
-@keyframes confettiFall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-    opacity:0;
-  }
-}
-
-.hidden{
-  display:none!important;
-}
+.confetti{position:fixed;top:-20px;width:8px;height:14px;
+animation:fall 3s linear forwards;z-index:100}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 
 @media(max-width:520px){
-  .card{
-    padding:28px 18px;
-    border-radius:22px;
-  }
-
-  p{
-    font-size:16px;
-  }
-
-  button{
-    width:100%;
-    margin:6px 0;
-  }
-
-  .options{
-    display:block;
-  }
-
-  .memory-grid{
-    grid-template-columns:1fr;
-  }
-
-  #gameArea{
-    height:300px;
-  }
+  .card{padding:28px 18px}
+  button{width:100%;margin:6px 0}
+  .options{display:block}
+  .memories{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<div class="progress">
-  <div class="progress-bar" id="progressBar"></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+
+<!-- 1 -->
+<section class="scene active" id="s1">
+<div class="card">
+<div class="mystery">🎁</div>
+<div class="small">A tiny mystery is waiting...</div>
+<h1>Hey <span class="pink">Rafia</span> 👀</h1>
+<p>Before you continue, promise me one thing...<br><br>
+<b>Don't skip anything. 😭</b></p>
+<button onclick="go(2)">Okay, I'm curious 👀</button>
+</div>
+</section>
+
+<!-- 2 -->
+<section class="scene" id="s2">
+<div class="card">
+<div class="small">Birthday verification</div>
+<h2>What's special about September 3rd? 🎀</h2>
+<div class="options">
+<button onclick="birthday(0)">Just another day 😭</button>
+<button onclick="birthday(1)">Someone's birthday 👀</button>
+<button onclick="birthday(2)">Rafia's birthday 🎂</button>
+</div>
+<div class="reaction" id="br"></div>
+<button class="hidden" id="bn" onclick="go(3)">Continue →</button>
+</div>
+</section>
+
+<!-- 3 -->
+<section class="scene" id="s3">
+<div class="card">
+<div class="small" id="qn">Friendship Question 1 of 4</div>
+<h2 id="qq"></h2>
+<div class="options" id="qo"></div>
+<div class="reaction" id="qr"></div>
+<button class="hidden" id="qnext" onclick="nextQ()">Next Question →</button>
+</div>
+</section>
+
+<!-- 4 -->
+<section class="scene" id="s4">
+<div class="card">
+<div class="small">Your turn now 👀</div>
+<h2>If you could make me do <span class="pink">ONE thing</span> today, what would it be?</h2>
+<p>You have exactly one wish. Choose wisely. 😭</p>
+<input id="wish" maxlength="150" placeholder="Type your answer...">
+<button onclick="saveWish()">Lock it in 🔒</button>
+<div class="reaction" id="wr"></div>
+<button class="hidden" id="wn" onclick="go(5)">Continue →</button>
+</div>
+</section>
+
+<!-- 5 -->
+<section class="scene" id="s5">
+<div class="card">
+<div class="small">One honest question 💭</div>
+<h2>What's one thing about our friendship that you genuinely appreciate?</h2>
+<p>No perfect answer. Just say what's on your mind. ❤️</p>
+<textarea id="app" rows="5" maxlength="300" placeholder="Write your answer..."></textarea>
+<button onclick="saveApp()">That's my answer ❤️</button>
+<div class="reaction" id="ar"></div>
+<button class="hidden" id="an" onclick="go(6)">Next surprise 👀 →</button>
+</div>
+</section>
+
+<!-- 6 -->
+<section class="scene" id="s6">
+<div class="card">
+<div class="small">Mini game 🎮</div>
+<h2>Catch the Heart ❤️</h2>
+<p>Tap the heart as many times as possible in 20 seconds!</p>
+<div class="score">Score: <b id="score">0</b> | Time: <b id="time">20</b></div>
+<div id="game"><div id="heart" onclick="catchHeart()">❤️</div></div>
+<div class="reaction" id="gr"></div>
+<button id="start" onclick="startGame()">Start Game 🎮</button>
+<button class="hidden" id="gn" onclick="go(7)">I survived 😭 →</button>
+</div>
+</section>
+
+<!-- 7 -->
+<section class="scene" id="s7">
+<div class="card">
+<div class="small">Somewhere between two cities 🌍</div>
+<h2>Rawalpindi ↔ Faisalabad</h2>
+<p>
+You're in <b>Faisalabad</b>.<br>
+I'm in <b>Rawalpindi</b>.<br><br>
+Different cities, different routines...
+but somehow a random group chat turned into a friendship
+that became genuinely important. ❤️
+</p>
+<div class="route">
+<div class="city left">📍 Rawalpindi</div>
+<div class="city right">📍 Faisalabad</div>
+<div class="line"></div>
+<div class="car">🚗</div>
+</div>
+<p>Distance doesn't erase good memories. 🫶</p>
+<button onclick="go(8)">Continue the journey →</button>
+</div>
+</section>
+
+<!-- 8 -->
+<section class="scene" id="s8">
+<div class="card">
+<div class="small">Memory corner 📸</div>
+<h2>Some moments deserve their own place.</h2>
+<p>Even random conversations can become special when the right person is there. ❤️</p>
+<div class="memories">
+<div class="memory">📸<br>Random conversations that somehow lasted forever.</div>
+<div class="memory">😂<br>The moments where neither of us made sense.</div>
+<div class="memory">🫶<br>Times when one of us simply needed someone to talk to.</div>
+<div class="memory">🌙<br>Late conversations that became little memories.</div>
+</div>
+<button onclick="go(9)">There's still one thing left... 👀</button>
+</div>
+</section>
+
+<!-- 9 -->
+<section class="scene" id="s9">
+<div class="card">
+<div class="small">This one's different...</div>
+<h2>I actually wrote something for you. ✍️</h2>
+<p>No quiz. No game. No trick question.<br><br>Just open it.</p>
+
+<div class="envelope" onclick="openLetter()">
+<span>Tap to open 💌</span>
 </div>
 
-<!-- SCENE 1 -->
-<section class="scene active" id="scene1">
-  <div class="card">
-    <div class="mystery">🎁</div>
+<div class="letter" id="letter">
+<h3>Dear Rafia,</h3><br>
+<p>
+Happy Birthday. ❤️<br><br>
 
-    <div class="small">A tiny mystery is waiting...</div>
+I honestly don't know how a completely random group chat
+turned into a friendship that became this important,
+but I'm really glad it happened.<br><br>
 
-    <h1>
-      Hey <span class="highlight">Rafia</span> 👀
-    </h1>
+We've had random conversations, stupid jokes, serious talks,
+annoying moments, and countless little memories in between.<br><br>
 
-    <p>
-      Before you continue, I need you to promise one thing...
-      <br><br>
-      <b>Don't skip anything.</b>
-      😭
-    </p>
+And even though we're not in the same city, you've still
+managed to become someone I can genuinely talk to and
+count on.<br><br>
 
-    <button class="pulse" onclick="goTo(2)">
-      Okay, I'm curious 👀
-    </button>
-  </div>
+I hope this new year of your life gives you plenty of reasons
+to smile, laugh, and feel proud of yourself.<br><br>
+
+Keep being the same chaotic, funny and caring person you are.
+Don't let anyone convince you that you aren't capable of
+amazing things.<br><br>
+
+And yes... you officially survived my ridiculously
+overcomplicated birthday website. 😭😂<br><br>
+
+Happy 17th Birthday, Rafia. 🎂❤️<br><br>
+
+— Ali
+</p>
+</div>
+
+<button class="hidden" id="ln" onclick="reveal()">One final surprise... 🎁</button>
+</div>
 </section>
 
-<!-- SCENE 2 -->
-<section class="scene" id="scene2">
-  <div class="card">
-
-    <div class="quiz-number">Question 1 of 1</div>
-
-    <h2>Let's see if you actually know what's happening today 👀</h2>
-
-    <p>
-      What is special about <b>September 3rd?</b> 🎀
-    </p>
-
-    <div class="options">
-      <button onclick="birthdayAnswer(0)">
-        Just another day 😭
-      </button>
-
-      <button onclick="birthdayAnswer(1)">
-        Someone's birthday 👀
-      </button>
-
-      <button onclick="birthdayAnswer(2)">
-        Obviously Rafia's birthday 🎂
-      </button>
-    </div>
-
-    <div class="reaction" id="birthdayReaction"></div>
-
-    <button class="next hidden" id="birthdayNext" onclick="goTo(3)">
-      Continue →
-    </button>
-
-  </div>
-</section>
-
-<!-- SCENE 3 START -->
-<section class="scene" id="scene3">
-  <div class="card">
-
-    <div class="quiz-number" id="friendQuizNumber">
-      Friendship Question 1 of 4
-    </div>
-
-    <h2 id="friendQuestion">
-      How did we originally meet? 👀
-    </h2>
-
-    <div class="options" id="friendOptions"></div>
-
-    <div class="reaction" id="friendReaction"></div>
-
-    <button
-      class="next hidden"
-      id="friendNext"
-      onclick="nextFriendQuestion()">
-      Next Question →
-    </button>
-
-  </div>
-</section>
-
-<!-- SCENE 4 -->
-<section class="scene" id="scene4">
-  <div class="card">
-
-    <div class="small">Okay... your turn now 👀</div>
-
-    <h2>
-      If you could make me do <span class="highlight">ONE thing</span>
-      today, what would it be?
-    </h2>
-
-    <p>
-      Think carefully. You have exactly one wish. 😭
-    </p>
-
-    <input
-      type="text"
-      id="wishInput"
-      placeholder="Type your answer here..."
-      maxlength="150"
-    >
-
-    <button onclick="saveWish()">
-      Lock it in 🔒
-    </button>
-
-    <div class="reaction" id="wishReaction"></div>
-
-    <button
-      class="next hidden"
-      id="wishNext"
-      onclick="goTo(5)">
-      Continue →
-    </button>
-
-  </div>
+<!-- FINAL -->
+<section class="scene" id="final">
+<div class="card">
+<div class="cake">🎂</div>
+<div class="small">Okay... THIS is the actual ending.</div>
+<h1 class="finalTitle">HAPPY BIRTHDAY<br>RAFIA! 🎉</h1>
+<p>
+<b>17 looks pretty good already. 😭❤️</b><br><br>
+I hope today gives you plenty of reasons to smile,
+laugh and feel appreciated.<br><br>
+Keep smiling. Keep laughing. Keep being you. 🌷✨
+</p>
+<div style="font-size:38px;margin-top:25px">🎈 🎁 🥳 🎂 💗 ✨</div>
+<p style="opacity:.55;font-size:13px;margin-top:25px">
+Made with way too much effort by Ali 😭
+</p>
+</div>
 </section>
 
 <script>
-let currentScene = 1;
+let current=1;
 
-function goTo(number){
-  document.querySelectorAll(".scene").forEach(scene=>{
-    scene.classList.remove("active");
-  });
-
-  const target = document.getElementById("scene" + number);
-
-  if(target){
-    target.classList.add("active");
-    currentScene = number;
-    updateProgress();
-    window.scrollTo({top:0,behavior:"smooth"});
-  }
+function go(n){
+ document.querySelectorAll(".scene").forEach(x=>x.classList.remove("active"));
+ let el=document.getElementById(n===10?"final":"s"+n);
+ if(el){
+  el.classList.add("active");
+  current=n;
+  document.getElementById("bar").style.width=((n-1)/9*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+ }
 }
 
-function updateProgress(){
-  const bar = document.getElementById("progressBar");
-
-  if(!bar) return;
-
-  const percentage = Math.min(
-    ((currentScene - 1) / 9) * 100,
-    100
-  );
-
-  bar.style.width = percentage + "%";
+function birthday(n){
+ const r=[
+ "BRO 😭 You really chose THAT?",
+ "Correct... but I expected you to know faster 👀",
+ "YESSSS 🎂 Obviously it's YOUR day!"
+ ];
+ document.getElementById("br").textContent=r[n];
+ document.getElementById("bn").classList.remove("hidden");
 }
 
-function birthdayAnswer(choice){
-  const reaction = document.getElementById("birthdayReaction");
-  const next = document.getElementById("birthdayNext");
-
-  const messages = [
-    "BRO 😭 You really chose THAT? I'm disappointed already.",
-    "Correct... but I expected you to know faster 👀",
-    "YESSSS 🎂 Obviously it's YOUR day, birthday girl!"
-  ];
-
-  reaction.textContent = messages[choice];
-  next.classList.remove("hidden");
+const questions=[
+{
+ q:"How did we originally meet? 👀",
+ o:["Random group chat 😭","School","A family event","I don't remember 💀"],
+ r:[
+ "YES 😭 A completely random group chat started all this.",
+ "Imagine if we met at school 💀",
+ "Family event?? Where did you get that from? 😭",
+ "HOW DO YOU NOT REMEMBER 😭"
+ ]
+},
+{
+ q:"What's one thing you think I'm good at? 👀",
+ o:["Making you laugh","Giving advice","Annoying you","All of the above 😭"],
+ r:[
+ "I'll take that compliment 😌",
+ "Okayyy, I'll accept that one.",
+ "Finally someone admits it 😭",
+ "The only correct answer honestly 💀"
+ ]
+},
+{
+ q:"Who usually starts the random conversations? 😂",
+ o:["You","Me","Both of us","Depends on the day"],
+ r:[
+ "Interesting accusation 👀",
+ "I knew you were going to say that 😭",
+ "Honestly... probably true.",
+ "Fair answer. We are both chaotic sometimes 💀"
+ ]
+},
+{
+ q:"After all this time, what are we? ❤️",
+ o:["Just random people","Friends","Very close friends","Two idiots who became important to each other 😭"],
+ r:[
+ "That would make this website awkward 😭",
+ "Correct ❤️",
+ "Now we're talking.",
+ "WHY IS THIS THE MOST ACCURATE OPTION 😭❤️"
+ ]
 }
-
-const friendQuestions = [
-  {
-    question:"How did we originally meet? 👀",
-    options:[
-      "Random group chat 😭",
-      "School",
-      "A family event",
-      "I don't even remember 💀"
-    ],
-    reactions:[
-      "YES 😭 A completely random group chat somehow started all this.",
-      "Imagine if we met at school 💀 That would be a completely different story.",
-      "Family event?? 😭 Where did you get that from?",
-      "HOW DO YOU NOT REMEMBER 😭"
-    ]
-  },
-  {
-    question:"What's one thing you think I'm good at? 👀",
-    options:[
-      "Making you laugh",
-      "Giving advice",
-      "Annoying you",
-      "All of the above 😭"
-    ],
-    reactions:[
-      "I'll take that compliment 😌",
-      "Okayyy, I'll accept that one.",
-      "FINALLY someone admits it 😭",
-      "The only correct answer honestly 💀"
-    ]
-  },
-  {
-    question:"Who usually starts the random conversations? 😂",
-    options:[
-      "You",
-      "Me",
-      "Both of us",
-      "Depends on the day"
-    ],
-    reactions:[
-      "Interesting accusation 👀",
-      "I knew you were going to say that 😭",
-      "Honestly... probably true.",
-      "Fair answer. We are both chaotic sometimes 💀"
-    ]
-  },
-  {
-    question:"After all this time, what are we? ❤️",
-    options:[
-      "Just random people",
-      "Friends",
-      "Very close friends",
-      "Two idiots who somehow became important to each other 😭"
-    ],
-    reactions:[
-      "That would make this entire website extremely awkward 😭",
-      "Correct ❤️",
-      "Now we're talking.",
-      "WHY IS THIS THE MOST ACCURATE OPTION 😭❤️"
-    ]
-  }
 ];
 
-let friendIndex = 0;
+let qi=0;
 
-function loadFriendQuestion(){
-  const data = friendQuestions[friendIndex];
-
-  document.getElementById("friendQuizNumber").textContent =
-    "Friendship Question " + (friendIndex + 1) + " of " + friendQuestions.length;
-
-  document.getElementById("friendQuestion").textContent =
-    data.question;
-
-  const options = document.getElementById("friendOptions");
-  const reaction = document.getElementById("friendReaction");
-  const next = document.getElementById("friendNext");
-
-  options.innerHTML = "";
-  reaction.textContent = "";
-  next.classList.add("hidden");
-
-  data.options.forEach((option,index)=>{
-    const button = document.createElement("button");
-
-    button.textContent = option;
-
-    button.onclick = ()=>{
-      reaction.textContent = data.reactions[index];
-      next.classList.remove("hidden");
-    };
-
-    options.appendChild(button);
-  });
+function loadQ(){
+ let q=questions[qi];
+ document.getElementById("qn").textContent=
+ "Friendship Question "+(qi+1)+" of 4";
+ document.getElementById("qq").textContent=q.q;
+ document.getElementById("qr").textContent="";
+ document.getElementById("qnext").classList.add("hidden");
+ let box=document.getElementById("qo");
+ box.innerHTML="";
+ q.o.forEach((x,i)=>{
+  let b=document.createElement("button");
+  b.textContent=x;
+  b.onclick=()=>{
+   document.getElementById("qr").textContent=q.r[i];
+   document.getElementById("qnext").classList.remove("hidden");
+  };
+  box.appendChild(b);
+ });
 }
 
-function nextFriendQuestion(){
-  friendIndex++;
-
-  if(friendIndex >= friendQuestions.length){
-    goTo(4);
-    return;
-  }
-
-  loadFriendQuestion();
+function nextQ(){
+ qi++;
+ if(qi>=questions.length){go(4);return}
+ loadQ();
 }
 
 function saveWish(){
-  const input = document.getElementById("wishInput");
-  const reaction = document.getElementById("wishReaction");
-  const next = document.getElementById("wishNext");
-
-  const value = input.value.trim();
-
-  if(!value){
-    reaction.textContent =
-      "You actually have to type something 😭";
-    return;
-  }
-
-  reaction.textContent =
-    "Interesting... I'll remember that one 👀😂";
-
-  next.classList.remove("hidden");
+ let v=document.getElementById("wish").value.trim();
+ let r=document.getElementById("wr");
+ if(!v){r.textContent="You actually have to type something 😭";return}
+ r.textContent="Interesting... I'll remember that one 👀😂";
+ document.getElementById("wn").classList.remove("hidden");
 }
 
-loadFriendQuestion();
-updateProgress();
+function saveApp(){
+ let v=document.getElementById("app").value.trim();
+ let r=document.getElementById("ar");
+ if(!v){r.textContent="Come on, give me an honest answer 😭";return}
+ r.textContent="Okay... that actually made me smile. ❤️";
+ document.getElementById("an").classList.remove("hidden");
+}
+
+let score=0,time=20,timer;
+
+function startGame(){
+ score=0;time=20;
+ document.getElementById("score").textContent=score;
+ document.getElementById("time").textContent=time;
+ document.getElementById("start").classList.add("hidden");
+ document.getElementById("heart").style.display="block";
+ moveHeart();
+ clearInterval(timer);
+ timer=setInterval(()=>{
+  time--;
+  document.getElementById("time").textContent=time;
+  if(time<=0)endGame();
+ },1000);
+}
+
+function moveHeart(){
+ let area=document.getElementById("game");
+ let h=document.getElementById("heart");
+ h.style.left=Math.random()*(area.clientWidth-55)+"px";
+ h.style.top=Math.random()*(area.clientHeight-55)+"px";
+}
+
+function catchHeart(){
+ score++;
+ document.getElementById("score").textContent=score;
+ moveHeart();
+}
+
+function endGame(){
+ clearInterval(timer);
+ document.getElementById("heart").style.display="none";
+ document.getElementById("gr").textContent=
+ "Okayyy 😭 You caught "+score+" hearts!";
+ document.getElementById("gn").classList.remove("hidden");
+}
+
+function openLetter(){
+ document.getElementById("letter").classList.add("show");
+ document.getElementById("ln").classList.remove("hidden");
+}
+
+function reveal(){
+ go(10);
+ confetti();
+}
+
+function confetti(){
+ for(let i=0;i<100;i++){
+  let c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"vw";
+  c.style.animationDelay=Math.random()*1.5+"s";
+  c.style.transform="rotate("+Math.random()*360+"deg)";
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(),4500);
+ }
+}
+
+setInterval(()=>{
+ if(Math.random()<.5){
+  let h=document.createElement("div");
+  h.textContent=["❤️","💗","✨","🌷"][Math.floor(Math.random()*4)];
+  h.style.position="fixed";
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="-30px";
+  h.style.fontSize="20px";
+  h.style.zIndex="1";
+  h.style.pointerEvents="none";
+  h.style.animation="float 4s linear";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),4000);
+ }
+},1000);
+
+loadQ();
 </script>
 
 </body>
